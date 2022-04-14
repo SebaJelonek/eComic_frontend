@@ -1,0 +1,44 @@
+.placeholder{
+    font-size: 1.125rem;
+    display: block;
+    text-align: left;
+    position: relative;
+    color: #1F1313;
+    top: -2rem;
+    left: 9px;
+    transition: all 250ms linear;
+}
+.label{
+    font-size: 1.125rem;
+    position: relative;
+    display: block;
+    text-align: left;
+    top: -4rem;
+    left: 1.25rem;
+    color: aliceblue;
+}
+.field{
+    outline: none;
+    font-size: 1.125rem;
+    display: block;
+    background-color: #00A0A7;
+    height: 1.7em;
+    margin: 3px 3px;
+    padding-left: 4px;
+    border-radius: 18px;
+    border: solid blanchedalmond 2px;
+    border-color: blanchedalmond;
+    transition: all 200ms linear;
+}
+.field:focus{
+    outline: blanchedalmond solid 1px;
+    box-shadow: 1px 1px 10px red;
+}
+.field:focus + .placeholder {
+    font-size: 1.125rem;
+    display: block;
+    text-align: left;
+    top: -4rem;
+    left: 1.25rem;
+    color: aliceblue;
+}

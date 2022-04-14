@@ -1,0 +1,33 @@
+.default{
+    padding: 0.5em 3.72em;
+    font-size: calc(10px + 2vmin);
+    border-radius: 10px;
+}
+.success{
+    background-color: #80cd9c;
+    border-top: bisque solid 2px;
+    border-left: bisque solid 2px;
+    border-bottom:  burlywood solid 2px;
+    border-right:  burlywood solid 2px;
+}
+.success:active{
+    background-color: #80cd9c;
+    border-top: burlywood solid 2px;
+    border-left:   burlywood solid 2px;
+    border-bottom:bisque solid 2px;
+    border-right:   bisque solid 2px;
+}
+.failure{
+    background-color: #B10D00;
+    color: aliceblue;
+    border-top: #D54200 solid 2px;
+    border-left: #D54200 solid 2px;
+    border-bottom:  #B13700 solid 2px;
+    border-right:  #B13700 solid 2px;
+}
+.failure:active{
+    border-top: #B13700 solid 2px;
+    border-left: #B13700 solid 2px;
+    border-bottom:  #D54200 solid 2px;
+    border-right:  #D54200 solid 2px;
+}
