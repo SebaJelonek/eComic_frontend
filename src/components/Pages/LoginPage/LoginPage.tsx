@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import InputField from '../../Layout/InputField/InputField';
 import Button from '../../Layout/Button/Button';
+import Form from '../../Layout/Form/Form';
 
 const LoginPage: React.FC = () => {
   const [findBy, setFindBy] = useState('');
@@ -64,7 +65,7 @@ const LoginPage: React.FC = () => {
   };
   return (
     <div>
-      <form onSubmit={onSignInHandler}>
+      <Form onSubmitForm={onSignInHandler}>
         <InputField
           id='name'
           label='Name or e-mail'
@@ -80,7 +81,7 @@ const LoginPage: React.FC = () => {
           type='password'
         />
         <Button type='failure' text='Sign in fast!' />
-      </form>
+      </Form>
       {message.length > 1 ? <p>{message}</p> : null}
     </div>
   );

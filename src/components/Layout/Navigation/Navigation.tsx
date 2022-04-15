@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LoginPage from '../../Pages/LoginPage/LoginPage';
 import RegisterPage from '../../Pages/RegisterPage/RegisterPage';
-import NavBar from './NavBar';
+import NavBar from './NavBar/NavBar';
 import { TodoContext } from '../../store/eComicContext';
 import style from './Navigation.module.css';
 

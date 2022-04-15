@@ -7,13 +7,14 @@
     background-color: #80cd9c;
     border-top: bisque solid 2px;
     border-left: bisque solid 2px;
-    border-bottom:  burlywood solid 2px;
-    border-right:  burlywood solid 2px;
+    border-bottom:  #FFA348 solid 2px;
+    border-right:  #FF8648 solid 2px;
+    transition: all 200ms linear;
 }
 .success:active{
     background-color: #80cd9c;
-    border-top: burlywood solid 2px;
-    border-left:   burlywood solid 2px;
+    border-top: #FF7027 solid 2px;
+    border-left:   #FF9227 solid 2px;
     border-bottom:bisque solid 2px;
     border-right:   bisque solid 2px;
 }

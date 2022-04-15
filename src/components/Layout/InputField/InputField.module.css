@@ -4,8 +4,8 @@
     text-align: left;
     position: relative;
     color: #1F1313;
-    top: -2rem;
-    left: 9px;
+    top: -2.1rem;
+    left: 15.1px;
     transition: all 250ms linear;
 }
 .label{
@@ -24,7 +24,7 @@
     background-color: #00A0A7;
     height: 1.7em;
     margin: 3px 3px;
-    padding-left: 4px;
+    padding-left: 10px;
     border-radius: 18px;
     border: solid blanchedalmond 2px;
     border-color: blanchedalmond;

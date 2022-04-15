@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import InputField from '../../Layout/InputField/InputField';
 import Button from '../../Layout/Button/Button';
+import Form from '../../Layout/Form/Form';
 
 const RegisterPage: React.FC = () => {
   const [name, setName] = useState('');
@@ -41,7 +42,7 @@ const RegisterPage: React.FC = () => {
 
   return (
     <div>
-      <form onSubmit={onSubmitHandler}>
+      <Form onSubmitForm={onSubmitHandler}>
         <InputField
           id='name'
           label='Name'
@@ -64,7 +65,7 @@ const RegisterPage: React.FC = () => {
           type='password'
         />
         <Button type='success' text='Sign up!' />
-      </form>
+      </Form>
       {message.length > 1 ? <p>{message}</p> : null}
     </div>
   );
