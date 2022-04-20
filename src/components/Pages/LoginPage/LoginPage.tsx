@@ -22,14 +22,15 @@ const LoginPage: React.FC = () => {
     e.preventDefault();
     if (findBy && password !== '') {
       const postUser = async () => {
-        const response = await fetch('http://localhost:1337/api/user/login', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            findBy: findBy,
-            password: password,
-          }),
-        });
+        let token: any = { findBy, password };
+        token = JSON.stringify(token);
+        const response = await fetch(
+          `http://localhost:1337/api/user/${token}`,
+          {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+          }
+        );
 
         return response.json();
       };
