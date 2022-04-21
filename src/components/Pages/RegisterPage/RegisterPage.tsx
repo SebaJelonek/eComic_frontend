@@ -42,26 +42,23 @@ const RegisterPage: React.FC = () => {
 
   return (
     <div>
-      <Form onSubmitForm={onSubmitHandler}>
+      <Form onFormSubmit={onSubmitHandler}>
         <InputField
           id='name'
           label='Name'
           getInputValue={(value) => setName(value)}
-          resetInput=''
           type='text'
         />
         <InputField
           id='email'
           label='Email'
           getInputValue={(value) => setEmail(value)}
-          resetInput=''
           type='email'
         />
         <InputField
           id='password'
           label='Password'
           getInputValue={(value) => setPassword(value)}
-          resetInput=''
           type='password'
         />
         <Button type='success' text='Sign up!' />

@@ -1,29 +1,28 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import InputField from '../../Layout/InputField/InputField';
 import Button from '../../Layout/Button/Button';
 import Form from '../../Layout/Form/Form';
+import { TodoContext } from '../../store/eComicContext';
 
 const LoginPage: React.FC = () => {
-  const [findBy, setFindBy] = useState('');
-  const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
-  const [reset, setReset] = useState(false);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const resetInputFields = () => {
-      setFindBy('');
-      setPassword('');
-      setReset(!reset);
-      console.log('hello');
-    };
-  }, [reset]);
+  const { findBy, setFindBy, password, setPassword, reset, setReset } =
+    useContext(TodoContext);
 
   const onSignInHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setReset(!reset);
     if (findBy && password !== '') {
-      const postUser = async () => {
-        let token: any = { findBy, password };
-        token = JSON.stringify(token);
+      const login = async () => {
+        const userCridentials: {
+          findBy: string;
+          password: string;
+        } = { findBy, password };
+        const token: string = JSON.stringify(userCridentials);
+
         const response = await fetch(
           `http://localhost:1337/api/user/${token}`,
           {
@@ -34,16 +33,19 @@ const LoginPage: React.FC = () => {
 
         return response.json();
       };
-      const res = postUser();
+      const res = login();
 
       res.then((res) => {
-        setReset(!reset);
-        console.log('what up?');
-        console.log(res);
-        setMessage(res.error || '');
-        setTimeout(() => {
-          setMessage('');
-        }, 5000);
+        if (res.error) {
+          if (res.error.includes('isConfirmed')) setMessage(res.error || '');
+          setTimeout(() => {
+            setMessage('');
+          }, 5000);
+        } else if (res.admin) {
+          navigate('/admin');
+        } else {
+          navigate('/about');
+        }
       });
     } else {
       if (findBy === '' && password === '') {
@@ -64,21 +66,20 @@ const LoginPage: React.FC = () => {
       }
     }
   };
+
   return (
     <div>
-      <Form onSubmitForm={onSignInHandler}>
+      <Form onFormSubmit={onSignInHandler}>
         <InputField
           id='name'
           label='Name or e-mail'
           getInputValue={(value) => setFindBy(value)}
-          resetInput={findBy}
           type='text'
         />
         <InputField
           id='password'
           label='Password'
           getInputValue={(value) => setPassword(value)}
-          resetInput={password}
           type='password'
         />
         <Button type='failure' text='Sign in fast!' />

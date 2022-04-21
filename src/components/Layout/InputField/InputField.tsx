@@ -1,4 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useContext, useEffect, useState } from 'react';
+import { TodoContext } from '../../store/eComicContext';
 import styles from './InputField.module.css';
 
 interface Props {
@@ -20,21 +21,18 @@ interface Props {
     | 'url'
     | 'week';
   getInputValue: (value: string) => void;
-  resetInput: any;
 }
 
-const InputField: React.FC<Props> = ({
-  id,
-  label,
-  type,
-  getInputValue,
-  resetInput,
-}) => {
+const InputField: React.FC<Props> = ({ id, label, type, getInputValue }) => {
   const [input, setInput] = useState('');
-
+  const { reset } = useContext(TodoContext);
   useEffect(() => {
     getInputValue(input);
   }, [getInputValue, input]);
+
+  useEffect(() => {
+    setInput('');
+  }, [reset]);
 
   const onValueChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.currentTarget.value);
@@ -48,6 +46,7 @@ const InputField: React.FC<Props> = ({
         id={id}
         name={id}
         onChange={onValueChange}
+        value={input}
       />
       <label
         // if input length is greater than 0
