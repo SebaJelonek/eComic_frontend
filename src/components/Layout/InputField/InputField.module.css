@@ -7,6 +7,7 @@
     top: -2.1rem;
     left: 15.1px;
     transition: all 250ms linear;
+    user-select: none;
 }
 .label{
     font-size: 1.125rem;
@@ -16,6 +17,7 @@
     top: -4.1rem;
     left: 1.25rem;
     color: aliceblue;
+    user-select: none;
 }
 .field{
     outline: none;

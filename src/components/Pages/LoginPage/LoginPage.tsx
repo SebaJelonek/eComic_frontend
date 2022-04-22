@@ -3,25 +3,31 @@ import { useNavigate } from 'react-router-dom';
 import InputField from '../../Layout/InputField/InputField';
 import Button from '../../Layout/Button/Button';
 import Form from '../../Layout/Form/Form';
-import { TodoContext } from '../../store/eComicContext';
+import { FormContext } from '../../store/LoginFormContext/FormContext';
+import { UserContext } from '../../store/UserCredentials/UserContext';
 
 const LoginPage: React.FC = () => {
   const [message, setMessage] = useState('');
   const navigate = useNavigate();
 
   const { findBy, setFindBy, password, setPassword, reset, setReset } =
-    useContext(TodoContext);
+    useContext(FormContext);
+
+  const { name, email } = useContext(UserContext);
 
   const onSignInHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    console.log(name);
+    console.log(email);
+
     setReset(!reset);
     if (findBy && password !== '') {
       const login = async () => {
-        const userCridentials: {
-          findBy: string;
-          password: string;
-        } = { findBy, password };
-        const token: string = JSON.stringify(userCridentials);
+        const credentials: { findBy: string; password: string } = {
+          findBy,
+          password,
+        };
+        const token: string = JSON.stringify(credentials);
 
         const response = await fetch(
           `http://localhost:1337/api/user/${token}`,

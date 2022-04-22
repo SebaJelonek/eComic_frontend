@@ -1,5 +1,5 @@
 import React, { Fragment, useContext, useEffect, useState } from 'react';
-import { TodoContext } from '../../store/eComicContext';
+import { FormContext } from '../../store/LoginFormContext/FormContext';
 import styles from './InputField.module.css';
 
 interface Props {
@@ -25,7 +25,7 @@ interface Props {
 
 const InputField: React.FC<Props> = ({ id, label, type, getInputValue }) => {
   const [input, setInput] = useState('');
-  const { reset } = useContext(TodoContext);
+  const { reset } = useContext(FormContext);
   useEffect(() => {
     getInputValue(input);
   }, [getInputValue, input]);

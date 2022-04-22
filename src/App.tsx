@@ -1,10 +1,13 @@
 import React from 'react';
 import Navigation from './components/Layout/Navigation/Navigation';
+import UserCredentialsProvider from './components/store/UserCredentials/UserCredentialsProvider';
 
 const App: React.FC = () => {
   return (
     <div className='App'>
-      <Navigation />
+      <UserCredentialsProvider>
+        <Navigation />
+      </UserCredentialsProvider>
     </div>
   );
 };
