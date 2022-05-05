@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { UserContext } from '../../store/UserCredentials/UserContext';
 
 const AboutPage: React.FC = () => {
-  return <div>This is about page</div>;
+  const { name } = useContext(UserContext);
+
+  return <div>Hello again {name}</div>;
 };
 
 export default AboutPage;

@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import FileInput from '../../Layout/FileInput/FileInput';
 import InputField from '../../Layout/InputField/InputField';
 import Button from '../../Layout/Button/Button';
 import Form from '../../Layout/Form/Form';
@@ -13,29 +14,19 @@ const LoginPage: React.FC = () => {
   const { findBy, setFindBy, password, setPassword, reset, setReset } =
     useContext(FormContext);
 
-  const { name, email } = useContext(UserContext);
+  const { setName, setEmail, setIsLoggedIn } = useContext(UserContext);
 
   const onSignInHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(name);
-    console.log(email);
-
     setReset(!reset);
     if (findBy && password !== '') {
       const login = async () => {
-        const credentials: { findBy: string; password: string } = {
-          findBy,
-          password,
-        };
-        const token: string = JSON.stringify(credentials);
-
-        const response = await fetch(
-          `http://localhost:1337/api/user/${token}`,
-          {
-            method: 'GET',
-            headers: { 'Content-Type': 'application/json' },
-          }
-        );
+        const response = await fetch(`http://localhost:1337/api/user`, {
+          method: 'POST',
+          mode: 'cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ findBy, password }),
+        });
 
         return response.json();
       };
@@ -43,13 +34,17 @@ const LoginPage: React.FC = () => {
 
       res.then((res) => {
         if (res.error) {
-          if (res.error.includes('isConfirmed')) setMessage(res.error || '');
+          res.error.includes('isConfirmed') && setMessage(res.error || '');
           setTimeout(() => {
             setMessage('');
           }, 5000);
         } else if (res.admin) {
+          console.log(res.token);
           navigate('/admin');
         } else {
+          setName(res.name);
+          setEmail(res.email);
+          setIsLoggedIn(true);
           navigate('/about');
         }
       });
@@ -76,6 +71,7 @@ const LoginPage: React.FC = () => {
   return (
     <div>
       <Form onFormSubmit={onSignInHandler}>
+        {/* <FileInput name='File' /> */}
         <InputField
           id='name'
           label='Name or e-mail'
