@@ -17,9 +17,9 @@ const RegisterPage: React.FC = () => {
         mode: 'cors',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          name: name,
-          email: email,
-          password: password,
+          name,
+          email,
+          password,
         }),
       });
 

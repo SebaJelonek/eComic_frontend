@@ -1,6 +1,6 @@
 .default{
     padding: 0.5em 3.72em;
-    font-size: calc(10px + 2vmin);
+    font-size: 1.2rem;
     border-radius: 10px;
 }
 .success{

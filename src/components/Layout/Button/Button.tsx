@@ -2,13 +2,19 @@ import React from 'react';
 import style from './Button.module.css';
 
 interface Props {
+  onButtonClick?: React.MouseEventHandler<HTMLButtonElement>;
   text: string;
   type: 'success' | 'failure' | '';
 }
 
-const Button: React.FC<Props> = ({ text, type }) => {
+const Button: React.FC<Props> = ({ text, type, onButtonClick }) => {
   return (
-    <button className={style[type] + ' ' + style['default']}>{text}</button>
+    <button
+      onClick={onButtonClick}
+      className={style[type] + ' ' + style['default']}
+    >
+      {text}
+    </button>
   );
 };
 

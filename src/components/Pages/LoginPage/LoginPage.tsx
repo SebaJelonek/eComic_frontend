@@ -1,6 +1,5 @@
 import React, { useContext, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import FileInput from '../../Layout/FileInput/FileInput';
 import InputField from '../../Layout/InputField/InputField';
 import Button from '../../Layout/Button/Button';
 import Form from '../../Layout/Form/Form';
