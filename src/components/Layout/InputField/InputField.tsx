@@ -26,6 +26,7 @@ interface Props {
 const InputField: React.FC<Props> = ({ id, label, type, getInputValue }) => {
   const [input, setInput] = useState('');
   const { reset } = useContext(FormContext);
+
   useEffect(() => {
     getInputValue(input);
   }, [getInputValue, input]);
@@ -47,6 +48,7 @@ const InputField: React.FC<Props> = ({ id, label, type, getInputValue }) => {
         name={id}
         onChange={onValueChange}
         value={input}
+        required
       />
       <label
         // if input length is greater than 0
