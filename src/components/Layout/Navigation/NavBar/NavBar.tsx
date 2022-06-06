@@ -18,6 +18,9 @@ const Router: React.FC = () => {
             <Link to='/about'>About</Link>
           </li>
           <li>
+            <Link to='/index'>Logo</Link>
+          </li>
+          <li>
             <Button
               text='Get'
               type='success'

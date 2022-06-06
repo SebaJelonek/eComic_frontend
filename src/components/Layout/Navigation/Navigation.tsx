@@ -5,6 +5,7 @@ import LoginPage from '../../Pages/LoginPage/LoginPage';
 import RegisterPage from '../../Pages/RegisterPage/RegisterPage';
 import AdminPage from '../../Pages/AdminPage/AdminPage';
 import AboutPage from '../../Pages/AboutPage/AboutPage';
+import IndexPage from '../../Pages/IndexPage/IndexPage';
 //-------------
 import UserCredentialsContextProvider from '../../store/LoginFormContext/LoginFormProvider';
 
@@ -27,6 +28,7 @@ const Navigation: React.FC = () => {
               <Route path='/about' element={<AboutPage />} />
             )}
             <Route path='/register' element={<RegisterPage />} />
+            <Route path='/index' element={<IndexPage />} />
             <Route path='/admin' element={<AdminPage />} />
             {isLoggedIn ? (
               <Route path='/about' element={<AboutPage />} />
