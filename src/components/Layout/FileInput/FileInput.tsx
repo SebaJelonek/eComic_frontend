@@ -5,9 +5,15 @@ interface Props {
   name: string;
   getFileName: (name: string) => void;
   getFile: (file: File) => void;
+  buttonName: string;
 }
 
-const FileInput: React.FC<Props> = ({ name, getFileName, getFile }) => {
+const FileInput: React.FC<Props> = ({
+  name,
+  getFileName,
+  getFile,
+  buttonName,
+}) => {
   const [file, setFile] = useState<File>();
   const [fileName, setFileName] = useState('');
 
@@ -32,15 +38,17 @@ const FileInput: React.FC<Props> = ({ name, getFileName, getFile }) => {
             ? style['file-label__empty']
             : style['file-label__uploaded']
         }
-        htmlFor='file-upload'
+        htmlFor={buttonName}
       >
-        {name !== '' ? name + ' file ready to upload' : 'Upload File'}
+        {name !== ''
+          ? name + ' file ready to upload'
+          : `Upload ${buttonName} File`}
       </label>
       <input
         className={style['file-input']}
         type='file'
-        name='file-upload'
-        id='file-upload'
+        name={buttonName}
+        id={buttonName}
         onChange={onFileUpload}
       />
     </Fragment>

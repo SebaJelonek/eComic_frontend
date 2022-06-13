@@ -1,5 +1,5 @@
 import React from 'react';
-import Card from '../../Layout/Card/Card';
+import VerticalList from '../../Layout/VerticalList/VerticalList';
 
 const IndexPage: React.FC = () => {
   const PROP_ARRAY = [
@@ -8,11 +8,17 @@ const IndexPage: React.FC = () => {
     { title: 'One more run', author: 'Fuckwit', genre: 'Driving' },
     { title: 'One more run', author: 'Fuckwit', genre: 'Driving' },
     { title: 'One more run', author: 'Fuckwit', genre: 'Driving' },
+    { title: 'One more run', author: 'Fuckwit', genre: 'Driving' },
+    { title: 'One more run', author: 'Fuckwit', genre: 'Driving' },
+    { title: 'One more run', author: 'Fuckwit', genre: 'Driving' },
+    { title: 'One more run', author: 'Fuckwit', genre: 'Driving' },
+    { title: 'One more run', author: 'Fuckwit', genre: 'Driving' },
+    { title: 'One more run', author: 'Fuckwit', genre: 'Driving' },
   ];
 
   return (
     <div>
-      <Card comicArray={PROP_ARRAY}></Card>
+      <VerticalList comicArray={PROP_ARRAY}></VerticalList>
     </div>
   );
 };
