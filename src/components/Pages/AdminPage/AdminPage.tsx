@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Button from '../../Layout/Button/Button';
 import FileInput from '../../Layout/FileInput/FileInput';
 import Form from '../../Layout/Form/Form';
 import InputField from '../../Layout/InputField/InputField';
+import { FormContext } from '../../store/LoginFormContext/FormContext';
 
 const AdminPage: React.FC = () => {
   const [title, setTitle] = useState<string>('');
@@ -12,6 +13,10 @@ const AdminPage: React.FC = () => {
   const [fileName, setFileName] = useState<string>('');
   const [img, setImg] = useState<File>();
   const [imgName, setImgName] = useState<string>('');
+  const [message, setMessage] = useState('');
+
+  const { reset, setReset, imgReset, setImgReset, pdfReset, setPdfReset } =
+    useContext(FormContext);
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -40,6 +45,8 @@ const AdminPage: React.FC = () => {
       formData.append('thumbnail', img, imgName);
 
       const uploadFiles = async () => {
+        setReset(!reset);
+        setPdfReset(!pdfReset);
         const response = await fetch(
           'http://localhost:1337/api/admin/filesUpload',
           { method: 'POST', mode: 'cors', body: formData }
@@ -48,8 +55,8 @@ const AdminPage: React.FC = () => {
       };
 
       uploadFiles().then((res) => {
-        const pdfName: string = res.pdfName;
-        const imgName: string = res.imgName;
+        const pdfID: string = res.pdfID;
+        const imgID: string = res.imgID;
 
         const upload = async () => {
           const response = await fetch(
@@ -58,38 +65,67 @@ const AdminPage: React.FC = () => {
               method: 'POST',
               mode: 'cors',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ title, author, genre, pdfName, imgName }),
+              body: JSON.stringify({ title, author, genre, pdfID, imgID }),
             }
           );
           return response.json();
         };
         upload().then((res) => {
-          console.log(res.msg);
+          setMessage(res.msg);
         });
       });
     }
   };
+
   const getTitle = (title: string) => {
     setTitle(title);
   };
+
   const getAuthor = (author: string) => {
     setAuthor(author);
   };
+
   const getGenre = (genre: string) => {
     setGenre(genre);
   };
+
   const getFileName = (name: string) => {
     setFileName(name);
   };
+
   const getFile = (file: File) => {
-    setFile(file);
+    if (file.type !== 'application/pdf') {
+      setMessage('Please use correct file format for your PDF file');
+      let timeoutID = setTimeout(() => {
+        setFile(undefined);
+        setFileName('');
+        setMessage('');
+        setPdfReset(!pdfReset);
+        clearTimeout(timeoutID);
+      }, 5000);
+    } else {
+      setFile(file);
+    }
   };
+
   const getImg = (img: File) => {
-    setImg(img);
+    if (!img.type.includes('image')) {
+      setMessage('Please use correct file format for your image file');
+      setTimeout(() => {
+        setImg(undefined);
+        setImgName('');
+        setMessage('');
+        setImgReset(!imgReset);
+      }, 5000);
+    } else {
+      setImg(img);
+    }
   };
+
   const getImgName = (imgName: string) => {
     setImgName(imgName);
   };
+
   return (
     <div>
       <Form onFormSubmit={submitHandler} encType='multipart/form-data'>
@@ -125,6 +161,7 @@ const AdminPage: React.FC = () => {
         />
         <Button text='Submit' type='success' />
       </Form>
+      {message.length > 1 ? <p>{message}</p> : null}
     </div>
   );
 };

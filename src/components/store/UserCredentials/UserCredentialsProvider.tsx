@@ -7,20 +7,18 @@ const UserCredentialsProvider: React.FC = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    const verify = async () => {
-      const response = await fetch('http://localhost:1337/api/verify', {
-        method: 'POST',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/json' },
-      });
-      return response.json();
-    };
-
-    const res = verify();
-
-    res.then((res) => {
-      console.log(res);
-    });
+    // const verify = async () => {
+    //   const response = await fetch('http://localhost:1337/api/verify', {
+    //     method: 'POST',
+    //     mode: 'cors',
+    //     headers: { 'Content-Type': 'application/json' },
+    //   });
+    //   return response.json();
+    // };
+    // const res = verify();
+    // res.then((res) => {
+    //   console.log(res);
+    // });
   }, []);
 
   return (

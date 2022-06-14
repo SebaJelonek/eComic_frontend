@@ -1,4 +1,5 @@
-import React, { Fragment, useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState, useContext } from 'react';
+import { FormContext } from '../../store/LoginFormContext/FormContext';
 import style from './FileInput.module.css';
 
 interface Props {
@@ -16,6 +17,7 @@ const FileInput: React.FC<Props> = ({
 }) => {
   const [file, setFile] = useState<File>();
   const [fileName, setFileName] = useState('');
+  const { pdfReset, imgReset } = useContext(FormContext);
 
   const onFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.currentTarget.files !== null && setFile(e.currentTarget.files[0]);
@@ -29,6 +31,11 @@ const FileInput: React.FC<Props> = ({
     getFileName(fileName);
     file !== undefined && getFile(file);
   }, [getFileName, getFile, fileName, file]);
+
+  useEffect(() => {
+    setFile(undefined);
+    setFileName('');
+  }, [pdfReset, imgReset]);
 
   return (
     <Fragment>
