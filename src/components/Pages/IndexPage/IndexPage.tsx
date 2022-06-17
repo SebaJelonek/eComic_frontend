@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import VerticalList from '../../Layout/VerticalList/VerticalList';
 
 interface Fetch {
-  comicArray: {
+  comics: {
     _id: string;
     title: string;
     author: string;
@@ -13,7 +13,7 @@ interface Fetch {
 }
 
 const IndexPage: React.FC = () => {
-  const [comicArray, setComicArray] = useState<Fetch['comicArray']>();
+  const [comics, setComics] = useState<Fetch['comics']>();
 
   useEffect(() => {
     const res = async () => {
@@ -25,13 +25,21 @@ const IndexPage: React.FC = () => {
       return response.json();
     };
     res().then((response) => {
-      setComicArray(response.comic);
+      setComics(response.comic);
     });
   }, []);
 
+  const horrors = comics?.filter(
+    (element) => element.genre.toLowerCase() === 'horror'
+  );
+  const futuristics = comics?.filter(
+    (element) => element.genre.toLowerCase() === 'futuristic'
+  );
+
   return (
     <div>
-      <VerticalList comicArray={comicArray}></VerticalList>
+      <VerticalList comics={horrors}></VerticalList>
+      <VerticalList comics={futuristics}></VerticalList>
     </div>
   );
 };

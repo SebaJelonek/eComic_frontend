@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //----PAGES----
 import LoginPage from '../../Pages/LoginPage/LoginPage';
 import RegisterPage from '../../Pages/RegisterPage/RegisterPage';
-import AdminPage from '../../Pages/AdminPage/AdminPage';
+import UploadPage from '../../Pages/UploadPage/UploadPage';
 import AboutPage from '../../Pages/AboutPage/AboutPage';
 import IndexPage from '../../Pages/IndexPage/IndexPage';
 //-------------
@@ -12,6 +12,7 @@ import UserCredentialsContextProvider from '../../store/LoginFormContext/LoginFo
 import NavBar from './NavBar/NavBar';
 import style from './Navigation.module.css';
 import { UserContext } from '../../store/UserCredentials/UserContext';
+import Reader from '../Reader/Reader';
 
 const Navigation: React.FC = () => {
   const { isLoggedIn } = useContext(UserContext);
@@ -29,7 +30,8 @@ const Navigation: React.FC = () => {
             )}
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/index' element={<IndexPage />} />
-            <Route path='/admin' element={<AdminPage />} />
+            <Route path='/admin' element={<UploadPage />} />
+            <Route path='/reader/:id' element={<Reader />} />
             {isLoggedIn ? (
               <Route path='/about' element={<AboutPage />} />
             ) : (
