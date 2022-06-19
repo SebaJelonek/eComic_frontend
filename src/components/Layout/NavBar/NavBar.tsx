@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { UserContext } from '../../../store/UserCredentials/UserContext';
-import Button from '../../Button/Button';
+import { UserContext } from '../../store/UserCredentials/UserContext';
+import Button from '../Button/Button';
 import style from './NavBar.module.css';
 
 const Router: React.FC = () => {

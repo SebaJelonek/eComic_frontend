@@ -1,18 +1,18 @@
 import React, { useContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 //----PAGES----
-import LoginPage from '../../Pages/LoginPage/LoginPage';
-import RegisterPage from '../../Pages/RegisterPage/RegisterPage';
-import UploadPage from '../../Pages/UploadPage/UploadPage';
-import AboutPage from '../../Pages/AboutPage/AboutPage';
-import IndexPage from '../../Pages/IndexPage/IndexPage';
-//-------------
-import UserCredentialsContextProvider from '../../store/LoginFormContext/LoginFormProvider';
-
-import NavBar from './NavBar/NavBar';
+import LoginPage from '../Pages/LoginPage/LoginPage';
+import RegisterPage from '../Pages/RegisterPage/RegisterPage';
+import UploadPage from '../Pages/UploadPage/UploadPage';
+import AboutPage from '../Pages/AboutPage/AboutPage';
+import IndexPage from '../Pages/IndexPage/IndexPage';
+import ReaderPage from '../Pages/ReaderPage/ReaderPage';
+//---CONTEXT---
+import UserCredentialsContextProvider from '../store/LoginFormContext/LoginFormProvider';
+import { UserContext } from '../store/UserCredentials/UserContext';
+//----OTHER----
+import NavBar from '../Layout/NavBar/NavBar';
 import style from './Navigation.module.css';
-import { UserContext } from '../../store/UserCredentials/UserContext';
-import Reader from '../Reader/Reader';
 
 const Navigation: React.FC = () => {
   const { isLoggedIn } = useContext(UserContext);
@@ -35,7 +35,7 @@ const Navigation: React.FC = () => {
             <Route path='/index' element={<IndexPage />} />
             <Route path='/upload' element={<UploadPage />} />
             {isLoggedIn ? (
-              <Route path='/reader/:id' element={<Reader />} />
+              <Route path='/reader/:id' element={<ReaderPage />} />
             ) : (
               <Route path='/login' element={<LoginPage />} />
             )}

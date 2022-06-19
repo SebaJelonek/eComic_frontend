@@ -1,8 +1,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import { Document, Page, pdfjs } from 'react-pdf';
-import Button from '../Button/Button';
-import Arrow from '../Arrow/Arrow';
-import style from './Reader.module.css';
+import Button from '../../Layout/Button/Button';
+import Arrow from '../../Layout/Arrow/Arrow';
+import style from './ReaderPage.module.css';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 const Reader: React.FC = () => {

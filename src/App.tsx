@@ -1,5 +1,5 @@
 import React from 'react';
-import Navigation from './components/Layout/Navigation/Navigation';
+import Navigation from './components/Navigation/Navigation';
 import UserCredentialsProvider from './components/store/UserCredentials/UserCredentialsProvider';
 
 const App: React.FC = () => {
