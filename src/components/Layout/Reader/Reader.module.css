@@ -1,8 +1,7 @@
-embed{
-    width: 800px;
-    height: 850px;
-}
-
-.container{
-    
+.button-container{
+    width: 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    justify-self: center;
 }

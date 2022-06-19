@@ -2,7 +2,6 @@ import React, { Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import style from './VerticalList.module.css';
 import Card from '../Card/Card';
-import Reader from '../Reader/Reader';
 
 interface Props {
   comics?: {
@@ -27,7 +26,6 @@ const VerticalList: React.FC<Props> = ({ comics }) => {
                 <Card>
                   <h3>{title}</h3>
                   <h4>{author}</h4>
-                  <h4>{genre}</h4>
                   <img
                     style={{ width: '250px' }}
                     src={`http://localhost:1337/api/file/${thumbnailID}`}

@@ -23,23 +23,27 @@ const Navigation: React.FC = () => {
       <div className={style['container']}>
         <UserCredentialsContextProvider>
           <Routes>
-            {!isLoggedIn ? (
+            {isLoggedIn
+              ? console.log('is logged')
+              : console.log('is not logged')}
+            {isLoggedIn ? (
               <Route path='/login' element={<LoginPage />} />
             ) : (
               <Route path='/about' element={<AboutPage />} />
             )}
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/index' element={<IndexPage />} />
-            <Route path='/admin' element={<UploadPage />} />
-            <Route path='/reader/:id' element={<Reader />} />
+            <Route path='/upload' element={<UploadPage />} />
+            {isLoggedIn ? (
+              <Route path='/reader/:id' element={<Reader />} />
+            ) : (
+              <Route path='/login' element={<LoginPage />} />
+            )}
             {isLoggedIn ? (
               <Route path='/about' element={<AboutPage />} />
             ) : (
               <Route path='/login' element={<LoginPage />} />
             )}
-            {isLoggedIn
-              ? console.log('is logged')
-              : console.log('is not logged')}
           </Routes>
         </UserCredentialsContextProvider>
       </div>

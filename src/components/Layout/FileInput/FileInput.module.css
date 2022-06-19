@@ -10,11 +10,15 @@
     font-size: 1.2rem;
     border-radius: 10px;
     margin-bottom: 1em;
-    background-color: #80cd9c;
+    font-weight: 600;
+    background-color: #3C04BD;
     border-top: bisque solid 2px;
     border-left: bisque solid 2px;
     border-bottom:  #FFA348 solid 2px;
     border-right:  #FF8648 solid 2px;
-    color: #08074D;
+    color: #FFA100;
     cursor: pointer;
+}
+strong{
+    color: #FFA100;
 }

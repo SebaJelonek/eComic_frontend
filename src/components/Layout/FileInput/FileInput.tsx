@@ -47,9 +47,14 @@ const FileInput: React.FC<Props> = ({
         }
         htmlFor={buttonName}
       >
-        {name !== ''
-          ? name + ' file ready to upload'
-          : `Upload ${buttonName} File`}
+        {name !== '' ? (
+          <>
+            <strong>{name} </strong>
+            file ready to upload
+          </>
+        ) : (
+          `Upload ${buttonName} File`
+        )}
       </label>
       <input
         className={style['file-input']}
