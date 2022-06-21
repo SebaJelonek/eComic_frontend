@@ -1,0 +1,28 @@
+.container {
+  max-width: 60px;
+}
+.profile-container {
+  width: 60px;
+}
+.profile-menu {
+  position: absolute;
+  padding: 0;
+  background-color: aliceblue;
+  transition: all 150ms ease;
+  border-radius: 6px;
+}
+.profile-element {
+  margin: 0 0.125em 0.25em 0.125em;
+  border-top: black solid 2px;
+  font-size: 1.5em;
+  list-style: none;
+  cursor: pointer;
+}
+.profile-element:first-child {
+  border-top: none;
+}
+
+.profile-element__link {
+  text-decoration: none;
+  color: #08074d;
+}

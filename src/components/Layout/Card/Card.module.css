@@ -1,10 +1,10 @@
-.card{
-    display: inline-block;
-    width: 13em;
-    margin: 0 0.75em;
-    background-color: #38404f;
-    border-radius: 5px;
-    box-shadow:4px 4px 18px -4px;
-    text-align: center;
-    cursor: pointer;
+.card {
+  display: inline-block;
+  width: 10em;
+  margin: 0 0.75em;
+  background-color: #38404f;
+  border-radius: 5px;
+  box-shadow: 4px 4px 18px -4px;
+  text-align: center;
+  cursor: pointer;
 }

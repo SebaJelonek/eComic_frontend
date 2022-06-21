@@ -128,7 +128,7 @@ const AdminPage: React.FC = () => {
 
   return (
     <div>
-      <Form onFormSubmit={submitHandler} encType='multipart/form-data'>
+      <Form onFormSubmit={submitHandler}>
         <InputField
           getInputValue={getTitle}
           id='title'

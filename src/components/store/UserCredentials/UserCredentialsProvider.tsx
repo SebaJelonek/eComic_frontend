@@ -5,6 +5,7 @@ const UserCredentialsProvider: React.FC = ({ children }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isArtist, setIsArtist] = useState(false);
 
   useEffect(() => {
     // const verify = async () => {
@@ -23,7 +24,16 @@ const UserCredentialsProvider: React.FC = ({ children }) => {
 
   return (
     <UserContext.Provider
-      value={{ email, setEmail, name, setName, isLoggedIn, setIsLoggedIn }}
+      value={{
+        email,
+        setEmail,
+        name,
+        setName,
+        isLoggedIn,
+        setIsLoggedIn,
+        isArtist,
+        setIsArtist,
+      }}
     >
       {children}
     </UserContext.Provider>

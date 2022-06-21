@@ -8,6 +8,8 @@ interface context {
     setName: React.Dispatch<React.SetStateAction<string>>;
     isLoggedIn: boolean;
     setIsLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
+    isArtist: boolean;
+    setIsArtist: React.Dispatch<React.SetStateAction<boolean>>;
   };
 }
 
@@ -18,4 +20,6 @@ export const UserContext = React.createContext<context['types']>({
   setName: () => {},
   isLoggedIn: false,
   setIsLoggedIn: () => {},
+  isArtist: false,
+  setIsArtist: () => {},
 });

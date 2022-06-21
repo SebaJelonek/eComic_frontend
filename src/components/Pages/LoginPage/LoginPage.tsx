@@ -13,7 +13,8 @@ const LoginPage: React.FC = () => {
   const { findBy, setFindBy, password, setPassword, reset, setReset } =
     useContext(FormContext);
 
-  const { setName, setEmail, setIsLoggedIn } = useContext(UserContext);
+  const { setName, setEmail, setIsLoggedIn, setIsArtist } =
+    useContext(UserContext);
 
   const onSignInHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -32,38 +33,19 @@ const LoginPage: React.FC = () => {
       const res = login();
 
       res.then((res) => {
-        if (res.error) {
-          res.error.includes('isConfirmed') && setMessage(res.error || '');
+        if (res.status === 400) {
+          setMessage(res.message);
           setTimeout(() => {
             setMessage('');
           }, 5000);
-        } else if (res.admin) {
-          console.log(res.token);
-          navigate('/admin');
         } else {
           setName(res.name);
           setEmail(res.email);
+          setIsArtist(res.isArtist);
           setIsLoggedIn(true);
-          navigate('/about');
+          navigate('/');
         }
       });
-    } else {
-      if (findBy === '' && password === '') {
-        setMessage('Email and password required');
-        setTimeout(() => {
-          setMessage('');
-        }, 5000);
-      } else if (findBy === '') {
-        setMessage('Email required');
-        setTimeout(() => {
-          setMessage('');
-        }, 5000);
-      } else {
-        setMessage('Password required');
-        setTimeout(() => {
-          setMessage('');
-        }, 5000);
-      }
     }
   };
 
@@ -83,7 +65,7 @@ const LoginPage: React.FC = () => {
           getInputValue={(value) => setPassword(value)}
           type='password'
         />
-        <Button type='failure' text='Sign in fast!' />
+        <Button type='success' text='Sign in' />
       </Form>
       {message.length > 1 ? <p>{message}</p> : null}
     </div>

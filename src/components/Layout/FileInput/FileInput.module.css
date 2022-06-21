@@ -1,24 +1,21 @@
-.file-input{
-    display: none;
+.file-input {
+  display: none;
 }
-.file-label__uploaded{
-    transition: all 200ms linear;
-    margin-bottom: 1em;
+.file-label__uploaded {
+  transition: all 200ms linear;
+  margin-bottom: 1em;
 }
-.file-label__empty{
-    padding: 0.5em 2.5em;
-    font-size: 1.2rem;
-    border-radius: 10px;
-    margin-bottom: 1em;
-    font-weight: 600;
-    background-color: #3C04BD;
-    border-top: bisque solid 2px;
-    border-left: bisque solid 2px;
-    border-bottom:  #FFA348 solid 2px;
-    border-right:  #FF8648 solid 2px;
-    color: #FFA100;
-    cursor: pointer;
-}
-strong{
-    color: #FFA100;
+.file-label__empty {
+  padding: 0.5em 2.5em;
+  font-size: 1.2rem;
+  border-radius: 10px;
+  margin-bottom: 1em;
+  font-weight: 600;
+  background-color: #3c04bd;
+  border-top: bisque solid 2px;
+  border-left: bisque solid 2px;
+  border-bottom: #ffa348 solid 2px;
+  border-right: #ff8648 solid 2px;
+  color: #ffa100;
+  cursor: pointer;
 }

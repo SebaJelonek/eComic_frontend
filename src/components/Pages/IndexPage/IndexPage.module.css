@@ -1,0 +1,23 @@
+.btn-link {
+  margin: 0.5em 0.75em;
+  padding: 0.45em 1.25em;
+  border-radius: 0.125em;
+  border-top: #ff2c00 solid 2px;
+  border-right: #ae0052 solid 2px;
+  border-bottom: #ae0052 solid 2px;
+  border-left: #ff2c00 solid 2px;
+  background-color: #00ff5f;
+  color: #081400;
+}
+.disclamer {
+  padding-top: 7.7rem;
+  position: relative;
+  bottom: -100%;
+  font-size: 0.5em;
+}
+.btn-link:active {
+  border-bottom: #ff2c00 solid 2px;
+  border-left: #ae0052 solid 2px;
+  border-top: #ae0052 solid 2px;
+  border-right: #ff2c00 solid 2px;
+}

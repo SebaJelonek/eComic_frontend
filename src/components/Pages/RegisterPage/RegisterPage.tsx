@@ -10,6 +10,8 @@ const RegisterPage: React.FC = () => {
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
 
+  let timeoutID: any;
+
   const onSubmitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const postUser = async () => {
@@ -29,25 +31,27 @@ const RegisterPage: React.FC = () => {
         );
         return response.json();
       } else {
+        clearTimeout(timeoutID);
         setMessage('Password does not match');
         setTimeout(() => {
           setMessage('');
+          clearTimeout(timeoutID);
         }, 5000);
       }
     };
 
     const res = postUser();
 
-    res
-      .then((res) => {
-        setMessage(res.message);
-        setTimeout(() => {
-          setMessage('');
-        }, 5000);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    res.then((res) => {
+      setMessage(res.message);
+      clearTimeout(timeoutID);
+      timeoutID = setTimeout(() => {
+        setMessage('');
+        clearTimeout(timeoutID);
+      }, 5000);
+    });
+
+    //close function
   };
 
   return (

@@ -5,8 +5,9 @@ import LoginPage from '../Pages/LoginPage/LoginPage';
 import RegisterPage from '../Pages/RegisterPage/RegisterPage';
 import UploadPage from '../Pages/UploadPage/UploadPage';
 import AboutPage from '../Pages/AboutPage/AboutPage';
-import IndexPage from '../Pages/IndexPage/IndexPage';
+import ComicPage from '../Pages/ComicPage/ComicPage';
 import ReaderPage from '../Pages/ReaderPage/ReaderPage';
+import IndexPage from '../Pages/IndexPage/IndexPage';
 //---CONTEXT---
 import UserCredentialsContextProvider from '../store/LoginFormContext/LoginFormProvider';
 import { UserContext } from '../store/UserCredentials/UserContext';
@@ -23,6 +24,7 @@ const Navigation: React.FC = () => {
       <div className={style['container']}>
         <UserCredentialsContextProvider>
           <Routes>
+            <Route path='/' element={<IndexPage />} />
             {isLoggedIn
               ? console.log('is logged')
               : console.log('is not logged')}
@@ -32,8 +34,8 @@ const Navigation: React.FC = () => {
               <Route path='/about' element={<AboutPage />} />
             )}
             <Route path='/register' element={<RegisterPage />} />
-            <Route path='/index' element={<IndexPage />} />
             <Route path='/upload' element={<UploadPage />} />
+            <Route path='/index' element={<ComicPage />} />
             {isLoggedIn ? (
               <Route path='/reader/:id' element={<ReaderPage />} />
             ) : (
