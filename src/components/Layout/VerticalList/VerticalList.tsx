@@ -26,13 +26,16 @@ const VerticalList: React.FC<Props> = ({ comics }) => {
             <Link
               className={style['list-link']}
               key={_id}
-              to={`/reader/${pdfFileID}`}
+              to={`/reader/${pdfFileID}/${author}/${title}`}
             >
-              <Card transition={cardStyle}>
-                <h3 style={{ transition: cardStyle }}>{title}</h3>
-                <h4 style={{ transition: cardStyle }}>{author}</h4>
+              <Card
+                transition={cardStyle}
+                onMouseEnterHandler={() => {
+                  console.log('enter');
+                }}
+              >
                 <img
-                  style={{ width: '250px' }}
+                  className={style['comic-img']}
                   src={`http://localhost:1337/api/file/${thumbnailID}`}
                   alt='comic thumbnail'
                 />

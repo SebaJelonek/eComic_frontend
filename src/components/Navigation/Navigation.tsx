@@ -37,7 +37,10 @@ const Navigation: React.FC = () => {
             <Route path='/upload' element={<UploadPage />} />
             <Route path='/index' element={<ComicPage />} />
             {isLoggedIn ? (
-              <Route path='/reader/:id' element={<ReaderPage />} />
+              <Route
+                path='/reader/:id/:author/:title'
+                element={<ReaderPage />}
+              />
             ) : (
               <Route path='/login' element={<LoginPage />} />
             )}

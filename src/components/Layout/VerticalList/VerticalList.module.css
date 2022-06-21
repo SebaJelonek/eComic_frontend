@@ -16,3 +16,7 @@
 .list-link :hover {
   color: #ff5722;
 }
+.comic-img {
+  margin: 0.125em;
+  width: 250px;
+}
