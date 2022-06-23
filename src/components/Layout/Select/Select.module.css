@@ -1,0 +1,66 @@
+.select-field {
+  width: 97.68%;
+  font-family: Segoe UI;
+  outline: none;
+  font-size: 1.125rem;
+  display: block;
+  background-color: #00a0a7;
+  height: 1.7em;
+  margin: 3px 3px;
+  padding-left: 10px;
+  border-radius: 18px;
+  border: solid blanchedalmond 2px;
+  border-color: blanchedalmond;
+  transition: all 200ms linear;
+}
+.select-field__transparent {
+  color: transparent;
+  width: 97.68%;
+  font-family: Segoe UI;
+  outline: none;
+  font-size: 1.125rem;
+  display: block;
+  background-color: #00a0a7;
+  height: 1.7em;
+  margin: 3px 3px;
+  padding-left: 10px;
+  border-radius: 18px;
+  border: solid blanchedalmond 2px;
+  border-color: blanchedalmond;
+  transition: all 200ms linear;
+}
+.select-field:focus-within {
+  outline: blanchedalmond solid 1px;
+  box-shadow: 1px 1px 10px red;
+}
+.select-label {
+  font-size: 1.125rem;
+  display: block;
+  text-align: left;
+  position: relative;
+  color: #1f1313;
+  top: -1.9rem;
+  left: 18.96px;
+  width: 30px;
+  transition: all 250ms linear;
+  user-select: none;
+}
+
+.select-field:focus-within + .select-label {
+  top: -3.8rem;
+  left: 1.5rem;
+  color: aliceblue;
+}
+.select-label__active {
+  font-size: 1.125rem;
+  display: block;
+  text-align: left;
+  position: relative;
+  color: #1f1313;
+  top: -3.8rem;
+  left: 1.5rem;
+  color: aliceblue;
+  width: 30px;
+  transition: all 250ms linear;
+  user-select: none;
+}

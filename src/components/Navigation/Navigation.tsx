@@ -14,9 +14,10 @@ import { UserContext } from '../store/UserCredentials/UserContext';
 //----OTHER----
 import NavBar from '../Layout/NavBar/NavBar';
 import style from './Navigation.module.css';
+import UserComicCollectionPage from '../Pages/UserComicCollectionPage/UserComicCollectionPage';
 
 const Navigation: React.FC = () => {
-  const { isLoggedIn } = useContext(UserContext);
+  const { isLoggedIn, isArtist } = useContext(UserContext);
 
   return (
     <Router>
@@ -35,7 +36,7 @@ const Navigation: React.FC = () => {
             )}
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/upload' element={<UploadPage />} />
-            <Route path='/index' element={<ComicPage />} />
+            <Route path='/comics' element={<ComicPage />} />
             {isLoggedIn ? (
               <Route
                 path='/reader/:id/:author/:title'
@@ -48,6 +49,9 @@ const Navigation: React.FC = () => {
               <Route path='/about' element={<AboutPage />} />
             ) : (
               <Route path='/login' element={<LoginPage />} />
+            )}
+            {isLoggedIn && isArtist && (
+              <Route path='/my-comics' element={<UserComicCollectionPage />} />
             )}
           </Routes>
         </UserCredentialsContextProvider>

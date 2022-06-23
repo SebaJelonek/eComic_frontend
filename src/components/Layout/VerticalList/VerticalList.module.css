@@ -6,15 +6,15 @@
 }
 .list-title {
   padding-left: 0.125em;
+  margin: 0 auto;
   text-align: left;
   color: #ff5722;
 }
 .list-link {
+  display: inline-block;
   text-decoration: none;
+  max-width: 320px;
   color: #08074d;
-}
-.list-link :hover {
-  color: #ff5722;
 }
 .comic-img {
   margin: 0.125em;

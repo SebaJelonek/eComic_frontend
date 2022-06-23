@@ -1,0 +1,26 @@
+.card {
+  display: inline-block;
+  width: 10em;
+  margin: 0 0.75em;
+  background-color: #38404f;
+  border-radius: 5px;
+  box-shadow: 4px 4px 18px -4px;
+  text-align: center;
+  cursor: pointer;
+}
+.card:hover {
+  color: #ff5722;
+}
+.card-pop-menu {
+  position: relative;
+  top: -189px;
+  left: -300px;
+  opacity: 0;
+  transition: all 750ms ease 500ms;
+}
+.card:hover + .card-pop-menu {
+  opacity: 100;
+}
+.card-pop-menu:hover {
+  opacity: 100;
+}

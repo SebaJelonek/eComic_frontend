@@ -3,7 +3,9 @@ import Button from '../../Layout/Button/Button';
 import FileInput from '../../Layout/FileInput/FileInput';
 import Form from '../../Layout/Form/Form';
 import InputField from '../../Layout/InputField/InputField';
+import Select from '../../Layout/Select/Select';
 import { FormContext } from '../../store/LoginFormContext/FormContext';
+import { UserContext } from '../../store/UserCredentials/UserContext';
 
 const AdminPage: React.FC = () => {
   const [title, setTitle] = useState<string>('');
@@ -17,6 +19,8 @@ const AdminPage: React.FC = () => {
 
   const { reset, setReset, imgReset, setImgReset, pdfReset, setPdfReset } =
     useContext(FormContext);
+
+  const { email } = useContext(UserContext);
 
   const submitHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -65,7 +69,14 @@ const AdminPage: React.FC = () => {
               method: 'POST',
               mode: 'cors',
               headers: { 'Content-Type': 'application/json' },
-              body: JSON.stringify({ title, author, genre, pdfID, imgID }),
+              body: JSON.stringify({
+                title,
+                author,
+                genre,
+                pdfID,
+                imgID,
+                email,
+              }),
             }
           );
           return response.json();
@@ -83,10 +94,6 @@ const AdminPage: React.FC = () => {
 
   const getAuthor = (author: string) => {
     setAuthor(author);
-  };
-
-  const getGenre = (genre: string) => {
-    setGenre(genre);
   };
 
   const getFileName = (name: string) => {
@@ -125,6 +132,9 @@ const AdminPage: React.FC = () => {
   const getImgName = (imgName: string) => {
     setImgName(imgName);
   };
+  const getGenre = (genre: string) => {
+    setGenre(genre);
+  };
 
   return (
     <div>
@@ -141,11 +151,17 @@ const AdminPage: React.FC = () => {
           label='Author'
           type='text'
         />
-        <InputField
-          getInputValue={getGenre}
-          id='genre'
-          label='Genre'
-          type='text'
+        <Select
+          getGenre={getGenre}
+          name='Genre'
+          options={[
+            'horror',
+            'futuristic',
+            'superhero',
+            'colorfull',
+            'for kids',
+            'other',
+          ]}
         />
         <FileInput
           getFileName={getFileName}

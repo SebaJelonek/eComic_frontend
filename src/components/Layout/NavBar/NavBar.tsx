@@ -86,7 +86,7 @@ const Router: React.FC = () => {
             </li>
           )}
           <li>
-            <Link className={style['nav-link']} to='/index'>
+            <Link className={style['nav-link']} to='/comics'>
               Comics
             </Link>
           </li>

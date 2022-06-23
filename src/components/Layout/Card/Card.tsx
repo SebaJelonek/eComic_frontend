@@ -3,21 +3,13 @@ import style from './Card.module.css';
 
 interface Props {
   children: React.ReactNode;
-  onMouseEnterHandler?: any;
-  transition?: string;
+  cursor: 'pointer' | 'default';
+  className?: any;
 }
 
-const Card: React.FC<Props> = ({
-  children,
-  transition,
-  onMouseEnterHandler,
-}) => {
+const Card: React.FC<Props> = ({ children, className, cursor }) => {
   return (
-    <div
-      onMouseEnter={onMouseEnterHandler}
-      style={{ transition: transition }}
-      className={style['card']}
-    >
+    <div style={{ cursor }} className={`${style['card']} ${className}`}>
       {children}
     </div>
   );

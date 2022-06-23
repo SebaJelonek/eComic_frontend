@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import style from './Profile.module.css';
 import profileImg from './1144709.png';
+import { UserContext } from '../../store/UserCredentials/UserContext';
 
 interface Props {
   className: any;
@@ -10,6 +11,8 @@ interface Props {
 const Profile: React.FC<Props> = ({ className }) => {
   const [top, setTop] = useState('-80px');
   const [zIndex, setZIndex] = useState('-10');
+
+  const { isArtist } = useContext(UserContext);
 
   const profile = (
     <img
@@ -41,11 +44,13 @@ const Profile: React.FC<Props> = ({ className }) => {
             About Me
           </Link>
         </li>
-        <li className={style['profile-element']}>
-          <Link className={style['profile-element__link']} to='/'>
-            My Comics
-          </Link>
-        </li>
+        {isArtist && (
+          <li className={style['profile-element']}>
+            <Link className={style['profile-element__link']} to='/my-comics'>
+              My Comics
+            </Link>
+          </li>
+        )}
         <li className={style['profile-element']}>
           <Link className={style['profile-element__link']} to='/'>
             Log out
