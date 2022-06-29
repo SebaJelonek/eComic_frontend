@@ -40,10 +40,8 @@ const RegisterPage: React.FC = () => {
       }
     };
 
-    const res = postUser();
-
-    res.then((res) => {
-      setMessage(res.message);
+    postUser().then(({ message }) => {
+      setMessage(message);
       clearTimeout(timeoutID);
       timeoutID = setTimeout(() => {
         setMessage('');

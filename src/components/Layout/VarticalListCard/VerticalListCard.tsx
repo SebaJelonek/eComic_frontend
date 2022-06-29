@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import Card from '../Card/Card';
 import style from './VerticalListCard.module.css';
+import Icon from '../FavoriteIcon/FavoriteIcon';
 
 interface Props {
   children: React.ReactNode;
@@ -24,6 +25,7 @@ const VerticalListCard: React.FC<Props> = ({
         <h3 className={style['pop-menu']}>{title}</h3>
         <p>By</p>
         <h3>{author}</h3>
+        <Icon />
       </Card>
     </Fragment>
   );

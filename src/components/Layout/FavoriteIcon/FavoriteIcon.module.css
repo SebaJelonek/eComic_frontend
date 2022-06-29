@@ -1,0 +1,19 @@
+.favorite-icon__color {
+  filter: invert(48%) sepia(70%) saturate(7500%) hue-rotate(343deg)
+    brightness(103%) contrast(112%);
+}
+.favorite-icon__color__fill {
+  filter: invert(48%) sepia(70%) saturate(7500%) hue-rotate(343deg)
+    brightness(103%) contrast(112%);
+  transition: all 250ms ease-in-out;
+  opacity: 0;
+  z-index: 1;
+}
+.favorite-icon__color__fill:hover {
+  opacity: 100;
+}
+.favorite-icon__position {
+  position: absolute;
+  right: 0;
+  top: 0;
+}

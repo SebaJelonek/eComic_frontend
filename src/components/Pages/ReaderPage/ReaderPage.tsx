@@ -3,6 +3,7 @@ import { Document, Page, pdfjs } from 'react-pdf';
 import { useParams } from 'react-router-dom';
 import Button from '../../Layout/Button/Button';
 import Arrow from '../../Layout/Arrow/Arrow';
+import StarRate from '../../Layout/StarRate/StarRate';
 import style from './ReaderPage.module.css';
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -51,6 +52,7 @@ const Reader: React.FC = () => {
     <div>
       <h1>{title}</h1>
       <h2>{author}</h2>
+      <StarRate />
       <Document onLoadSuccess={onSuccessfullLoad} file={url}>
         <Arrow
           onClickHandler={previousPageHandler}

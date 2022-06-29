@@ -12,7 +12,7 @@ const Profile: React.FC<Props> = ({ className }) => {
   const [top, setTop] = useState('-80px');
   const [zIndex, setZIndex] = useState('-10');
 
-  const { isArtist } = useContext(UserContext);
+  const { isArtist, setIsLoggedIn } = useContext(UserContext);
 
   const profile = (
     <img
@@ -52,7 +52,13 @@ const Profile: React.FC<Props> = ({ className }) => {
           </li>
         )}
         <li className={style['profile-element']}>
-          <Link className={style['profile-element__link']} to='/'>
+          <Link
+            onClick={() => {
+              setIsLoggedIn(false);
+            }}
+            className={style['profile-element__link']}
+            to='/'
+          >
             Log out
           </Link>
         </li>

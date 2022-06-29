@@ -1,0 +1,94 @@
+#one {
+  position: relative;
+  right: 312px;
+  opacity: 0;
+  filter: invert(76%) sepia(17%) saturate(5689%) hue-rotate(1deg)
+    brightness(99%) contrast(103%);
+  z-index: 1;
+}
+#two {
+  position: relative;
+  right: 216px;
+  opacity: 0;
+  filter: invert(76%) sepia(17%) saturate(5689%) hue-rotate(1deg)
+    brightness(99%) contrast(103%);
+  z-index: 1;
+}
+#three {
+  position: relative;
+  right: 120px;
+  opacity: 0;
+  filter: invert(76%) sepia(17%) saturate(5689%) hue-rotate(1deg)
+    brightness(99%) contrast(103%);
+  z-index: 1;
+}
+#four {
+  position: relative;
+  right: 24px;
+  opacity: 0;
+  filter: invert(76%) sepia(17%) saturate(5689%) hue-rotate(1deg)
+    brightness(99%) contrast(103%);
+  z-index: 1;
+}
+#five {
+  position: relative;
+  right: -72px;
+  opacity: 0;
+  filter: invert(76%) sepia(17%) saturate(5689%) hue-rotate(1deg)
+    brightness(99%) contrast(103%);
+  z-index: 1;
+}
+#five:hover + #four + #three + #two + #one {
+  opacity: 100;
+}
+#five:hover + #four + #three + #two {
+  opacity: 100;
+}
+#five:hover + #four + #three {
+  opacity: 100;
+}
+#five:hover + #four {
+  opacity: 100;
+}
+
+#five:hover {
+  opacity: 100;
+}
+#four:hover + #three + #two + #one {
+  opacity: 100;
+}
+#four:hover + #three + #two {
+  opacity: 100;
+}
+
+#four:hover + #three {
+  opacity: 100;
+}
+
+#four:hover {
+  opacity: 100;
+}
+#three:hover + #two + #one {
+  opacity: 100;
+}
+#three:hover + #two {
+  opacity: 100;
+}
+#three:hover {
+  opacity: 100;
+}
+#two:hover + #one {
+  opacity: 100;
+}
+#two:hover {
+  opacity: 100;
+}
+#one:hover {
+  opacity: 100;
+}
+.star-out {
+  position: relative;
+  left: 120px;
+  filter: invert(56%) sepia(88%) saturate(6617%) hue-rotate(36deg)
+    brightness(100%) contrast(103%);
+}
