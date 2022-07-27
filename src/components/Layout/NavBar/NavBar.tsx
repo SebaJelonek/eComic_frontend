@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../store/UserCredentials/UserContext';
 import Profile from '../Profile/Profile';
-import Button from '../Button/Button';
+
 import style from './NavBar.module.css';
 import bookImg from './3145866.png';
 
@@ -10,50 +10,6 @@ const logo = <img style={{ width: '50px' }} src={bookImg} alt='book logo' />;
 
 const Router: React.FC = () => {
   const { isLoggedIn, isArtist } = useContext(UserContext);
-
-  const fetchTwo = () => {
-    const verify = async () => {
-      const response = await fetch('http://localhost:1337/api/just', {
-        method: 'GET',
-        credentials: 'include',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'Access-Control-Allow-Origin': 'http://localhost:3000/',
-        },
-      });
-      return response.json();
-    };
-
-    const res = verify();
-
-    res.then((res) => {
-      console.log(res);
-    });
-  };
-
-  const fetchOne = () => {
-    const verify = async () => {
-      const response = await fetch('http://localhost:1337/api/verify', {
-        method: 'POST',
-        credentials: 'include',
-        mode: 'cors',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-          'Access-Control-Allow-Origin': 'http://localhost:3000/',
-        },
-        body: JSON.stringify({ user: 'seba' }),
-      });
-      return response.json();
-    };
-
-    const res = verify();
-    res.then((res) => {
-      console.log(res);
-    });
-  };
 
   return (
     <nav className={style['nav-container']}>
