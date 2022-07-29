@@ -13,6 +13,21 @@ const Router: React.FC = () => {
 
   return (
     <nav className={style['nav-container']}>
+      <button
+        onClick={() => {
+          const fetchGet = async () => {
+            const response = await fetch(`http://localhost:1337/api/verify`, {
+              method: 'GET',
+              mode: 'cors',
+              headers: { 'Content-Type': 'application/json' },
+            });
+            return response.json();
+          };
+          fetchGet();
+        }}
+      >
+        verify
+      </button>
       <div className={style['nav-bar']}>
         <ul className={style['nav-list']}>
           <li>
@@ -46,12 +61,6 @@ const Router: React.FC = () => {
               Comics
             </Link>
           </li>
-          {/* <li>
-            <Button onButtonClick={fetchTwo} text='Get' type='success' />
-            </li>
-            <li>
-            <Button onButtonClick={fetchOne} text='Log Out' type='failure' />
-          </li> */}
         </ul>
         {isLoggedIn && (
           <Profile

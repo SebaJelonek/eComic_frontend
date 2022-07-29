@@ -21,7 +21,7 @@ const LoginPage: React.FC = () => {
     setReset(!reset);
     if (findBy && password !== '') {
       const login = async () => {
-        const response = await fetch(`http://localhost:1337/api/user`, {
+        const response = await fetch(`http://localhost:1337/api/user/login`, {
           method: 'POST',
           mode: 'cors',
           headers: { 'Content-Type': 'application/json' },

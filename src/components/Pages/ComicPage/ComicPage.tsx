@@ -39,6 +39,7 @@ const IndexPage: React.FC = () => {
   return (
     <div>
       <VerticalList comics={horrors}></VerticalList>
+      {console.log(futuristics !== undefined)}
       {futuristics !== undefined && futuristics?.length > 1 ? (
         <VerticalList comics={futuristics}></VerticalList>
       ) : null}

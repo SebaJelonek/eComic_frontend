@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { UserContext } from './UserContext';
 
 const UserCredentialsProvider: React.FC = ({ children }) => {
-  const [email, setEmail] = useState('userEmail@mail.com'); //set to empty when done
-  const [name, setName] = useState('userName'); //set to empty when done
-  const [isLoggedIn, setIsLoggedIn] = useState(true); //set to false when done
-  const [isArtist, setIsArtist] = useState(true); //set false when done
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isArtist, setIsArtist] = useState(false);
 
   useEffect(() => {
     // const verify = async () => {
