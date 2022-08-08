@@ -1,6 +1,10 @@
+.container {
+  width: 84%;
+  margin: 0 auto;
+}
 .card-container {
-  overflow-x: scroll;
-  overflow-y: hidden;
+  transition: all 500ms ease-in-out;
+  overflow-x: clip;
   padding: 0.55em 0 0.9em 0;
   white-space: nowrap;
 }

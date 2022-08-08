@@ -1,0 +1,15 @@
+.chevron_right {
+  width: 0;
+  position: absolute;
+  left: 1780px;
+  top: 140px;
+}
+
+.chevron_left {
+  width: 160px;
+  position: absolute;
+  left: 0px;
+  height: 470px;
+  background-color: #282c34;
+  z-index: 10;
+}

@@ -1,12 +1,17 @@
 import React from 'react';
-import style from './Arrow.module.css';
+import style from './PageArrow.module.css';
+
 interface Props {
   onClickHandler: React.MouseEventHandler<SVGSVGElement>;
   height: number;
   orientation: 'right' | 'left';
 }
 
-const Arrow: React.FC<Props> = ({ orientation, height, onClickHandler }) => {
+const PageArrow: React.FC<Props> = ({
+  orientation,
+  height,
+  onClickHandler,
+}) => {
   const rightArrow = (
     <svg
       onClick={onClickHandler}
@@ -38,4 +43,4 @@ const Arrow: React.FC<Props> = ({ orientation, height, onClickHandler }) => {
   }
 };
 
-export default Arrow;
+export default PageArrow;

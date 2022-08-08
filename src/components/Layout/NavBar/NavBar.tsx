@@ -13,7 +13,7 @@ const Router: React.FC = () => {
 
   return (
     <nav className={style['nav-container']}>
-      <button
+      {/* <button
         onClick={() => {
           const fetchGet = async () => {
             const response = await fetch(`http://localhost:1337/api/verify`, {
@@ -27,7 +27,7 @@ const Router: React.FC = () => {
         }}
       >
         verify
-      </button>
+      </button> */}
       <div className={style['nav-bar']}>
         <ul className={style['nav-list']}>
           <li>
