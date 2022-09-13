@@ -22,7 +22,7 @@ const UserComicCollectionPage: React.FC = () => {
   useEffect(() => {
     const res = async () => {
       const response = await fetch(
-        `http://localhost:1337/api/comic-collection/${email}`,
+        `https://ecomic-backend.onrender.com/api/comic-collection/${email}`,
         {
           method: 'GET',
           mode: 'cors',
@@ -48,7 +48,7 @@ const UserComicCollectionPage: React.FC = () => {
               <h2>{title}</h2>
               <div style={{ width: '95%', margin: '0 auto' }}>
                 <img
-                  src={`http://localhost:1337/api/file/${thumbnailID}`}
+                  src={`https://ecomic-backend.onrender.com/api/file/${thumbnailID}`}
                   alt='comic thumbnail'
                 />
               </div>

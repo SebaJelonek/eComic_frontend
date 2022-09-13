@@ -1,4 +1,5 @@
 .container {
+  display: flex;
   width: 84%;
   margin: 0 auto;
 }
@@ -19,8 +20,4 @@
   text-decoration: none;
   max-width: 320px;
   color: #08074d;
-}
-.comic-img {
-  margin: 0.125em;
-  width: 250px;
 }

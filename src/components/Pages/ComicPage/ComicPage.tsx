@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import VerticalList from '../../Layout/VerticalList/VerticalList';
 
-interface Fetch {
+interface FetchedData {
   comics: {
     _id: string;
     title: string;
@@ -9,19 +9,23 @@ interface Fetch {
     genre: string;
     pdfFileID: string;
     thumbnailID: string;
+    isConfirmed: boolean;
   }[];
 }
 
 const IndexPage: React.FC = () => {
-  const [comics, setComics] = useState<Fetch['comics']>();
+  const [comics, setComics] = useState<FetchedData['comics']>();
 
   useEffect(() => {
     const res = async () => {
-      const response = await fetch(`http://localhost:1337/api/comic-list`, {
-        method: 'GET',
-        mode: 'cors',
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const response = await fetch(
+        `https://ecomic-backend.onrender.com/api/comic-list`,
+        {
+          method: 'GET',
+          mode: 'cors',
+          headers: { 'Content-Type': 'application/json' },
+        }
+      );
       return response.json();
     };
     res().then((response) => {
@@ -33,17 +37,29 @@ const IndexPage: React.FC = () => {
     (element) => element.genre.toLowerCase() === 'horror'
   );
   const futuristics = comics?.filter(
-    (element) => element.genre.toLowerCase() === 'futuristic'
+    (element) =>
+      element.genre.toLowerCase() === 'futuristic' &&
+      element.isConfirmed === true
   );
+  console.log(futuristics);
 
   return (
-    <div>
-      <VerticalList comics={horrors}></VerticalList>
-      {console.log(futuristics !== undefined)}
-      {futuristics !== undefined && futuristics?.length > 1 ? (
-        <VerticalList comics={futuristics}></VerticalList>
+    <>
+      {horrors !== undefined && (
+        <VerticalList
+          isConfirmed={true}
+          comicCount={horrors?.length}
+          comics={horrors}
+        />
+      )}
+      {futuristics !== undefined && futuristics?.length > 0 ? (
+        <VerticalList
+          isConfirmed={true}
+          comicCount={futuristics.length}
+          comics={futuristics}
+        />
       ) : null}
-    </div>
+    </>
   );
 };
 

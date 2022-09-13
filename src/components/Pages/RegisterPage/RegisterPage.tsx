@@ -17,7 +17,7 @@ const RegisterPage: React.FC = () => {
     const postUser = async () => {
       if (password === passwordCheck) {
         const response = await fetch(
-          'http://localhost:1337/api/user/register',
+          'https://ecomic-backend.onrender.com/api/user/register',
           {
             method: 'POST',
             mode: 'cors',

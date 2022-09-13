@@ -52,7 +52,7 @@ const AdminPage: React.FC = () => {
         setReset(!reset);
         setPdfReset(!pdfReset);
         const response = await fetch(
-          'http://localhost:1337/api/admin/filesUpload',
+          'https://ecomic-backend.onrender.com/api/admin/filesUpload',
           { method: 'POST', mode: 'cors', body: formData }
         );
         return response.json();
@@ -64,7 +64,7 @@ const AdminPage: React.FC = () => {
 
         const upload = async () => {
           const response = await fetch(
-            'http://localhost:1337/api/admin/new-comic',
+            'https://ecomic-backend.onrender.com/api/admin/new-comic',
             {
               method: 'POST',
               mode: 'cors',

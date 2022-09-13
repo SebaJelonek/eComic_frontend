@@ -13,39 +13,63 @@ const LoginPage: React.FC = () => {
   const { findBy, setFindBy, password, setPassword, reset, setReset } =
     useContext(FormContext);
 
-  const { setName, setEmail, setIsLoggedIn, setIsArtist } =
-    useContext(UserContext);
+  const {
+    setName,
+    setEmail,
+    setIsLoggedIn,
+    setIsArtist,
+    setUserId,
+    setFavoriteComicList,
+    setIsAdmin,
+  } = useContext(UserContext);
 
   const onSignInHandler = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setReset(!reset);
     if (findBy && password !== '') {
       const login = async () => {
-        const response = await fetch(`http://localhost:1337/api/user/login`, {
-          method: 'POST',
-          mode: 'cors',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ findBy, password }),
-        });
+        const response = await fetch(
+          `https://ecomic-backend.onrender.com/api/user/login`,
+          {
+            method: 'POST',
+            mode: 'cors',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ findBy, password }),
+          }
+        );
 
         return response.json();
       };
       const res = login();
 
-      res.then((res) => {
-        if (res.status === 400) {
-          setMessage(res.message);
-          setTimeout(() => {
-            setMessage('');
-          }, 5000);
-        } else {
-          setName(res.name);
-          setEmail(res.email);
-          setIsArtist(res.isArtist);
-          setIsLoggedIn(true);
-          navigate('/');
+      res.then(
+        ({
+          status,
+          name,
+          email,
+          isArtist,
+          id,
+          favoriteList,
+          message,
+          isAdmin,
+        }) => {
+          if (status === 400) {
+            setMessage(message);
+            setTimeout(() => {
+              setMessage('');
+            }, 5000);
+          } else {
+            setIsAdmin(isAdmin);
+            setName(name);
+            setEmail(email);
+            setIsArtist(isArtist);
+            setUserId(id);
+            setFavoriteComicList(favoriteList);
+            setIsLoggedIn(true);
+            navigate('/');
+          }
         }
-      });
+      );
     }
   };
 

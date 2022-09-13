@@ -24,3 +24,14 @@
 .card-pop-menu:hover {
   opacity: 100;
 }
+.comic-img {
+  margin: 0.125em;
+  margin-bottom: 0.75em;
+  width: 250px;
+}
+.flex-container__btn {
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  justify-content: space-between;
+}

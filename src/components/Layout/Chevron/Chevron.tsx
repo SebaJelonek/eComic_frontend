@@ -12,7 +12,6 @@ const Chevron: React.FC<Props> = ({ orientation, onClickHandler }) => {
   const chevronRight = (
     <div className={style['chevron_right']}>
       <svg
-        style={{ height: 280, zIndex: 10 }}
         onClick={onClickHandler}
         xmlns='http://www.w3.org/2000/svg'
         viewBox='4 0 8 16'
@@ -25,7 +24,6 @@ const Chevron: React.FC<Props> = ({ orientation, onClickHandler }) => {
   const chevronLeft = (
     <div className={style['chevron_left']}>
       <svg
-        style={{ height: 280, zIndex: 10 }}
         onClick={onClickHandler}
         xmlns='http://www.w3.org/2000/svg'
         viewBox='4 0 8 16'

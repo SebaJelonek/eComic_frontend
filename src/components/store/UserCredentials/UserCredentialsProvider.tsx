@@ -4,8 +4,21 @@ import { UserContext } from './UserContext';
 const UserCredentialsProvider: React.FC = ({ children }) => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
+  const [userId, setUserId] = useState('');
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isArtist, setIsArtist] = useState(false);
+  const [isAdmin, setIsAdmin] = useState(false);
+  const [favoriteComicList, setFavoriteComicList] = useState(['']);
+  const [unconfirmedComics, setUnconfirmedComics] = useState([
+    {
+      _id: '',
+      thumbnailID: '',
+      title: '',
+      author: '',
+      genre: '',
+      pdfFileID: '',
+    },
+  ]);
 
   useEffect(() => {
     // const verify = async () => {
@@ -33,6 +46,14 @@ const UserCredentialsProvider: React.FC = ({ children }) => {
         setIsLoggedIn,
         isArtist,
         setIsArtist,
+        userId,
+        setUserId,
+        favoriteComicList,
+        setFavoriteComicList,
+        isAdmin,
+        setIsAdmin,
+        unconfirmedComics,
+        setUnconfirmedComics,
       }}
     >
       {children}

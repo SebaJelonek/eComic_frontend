@@ -1,45 +1,47 @@
-.small{
-    padding: 0.5em 1em;
-    font-size: 1.2rem;
-    font-weight: 600;
-    border-radius: 10px;
+.small {
+  padding: 0.5em 1em;
+  font-size: 1.2rem;
+  font-weight: 400;
+  border-radius: 10px;
+  min-width: 100px;
+  margin-bottom: 1em;
 }
-.regular{
-    padding: 0.5em 2.5em;
-    font-size: 1.2rem;
-    border-radius: 10px;
+.regular {
+  padding: 0.5em 2.5em;
+  font-size: 1.2rem;
+  border-radius: 10px;
 }
-.big{
-    padding: 0.5em 2.5em;
-    font-size: 1.2rem;
-    border-radius: 10px;
+.big {
+  padding: 0.5em 2.5em;
+  font-size: 1.2rem;
+  border-radius: 10px;
 }
-.success{
-    background-color: #80cd9c;
-    border-top: bisque solid 2px;
-    border-left: bisque solid 2px;
-    border-bottom:  #FFA348 solid 2px;
-    border-right:  #FF8648 solid 2px;
-    transition: all 50ms linear;
+.success {
+  background-color: #80cd9c;
+  border-top: bisque solid 2px;
+  border-left: bisque solid 2px;
+  border-bottom: #ffa348 solid 2px;
+  border-right: #ff8648 solid 2px;
+  transition: all 50ms linear;
 }
-.success:active{
-    background-color: #80cd9c;
-    border-top: #FF7027 solid 2px;
-    border-left:   #FF9227 solid 2px;
-    border-bottom:bisque solid 2px;
-    border-right:   bisque solid 2px;
+.success:active {
+  background-color: #80cd9c;
+  border-top: #ff7027 solid 2px;
+  border-left: #ff9227 solid 2px;
+  border-bottom: bisque solid 2px;
+  border-right: bisque solid 2px;
 }
-.failure{
-    background-color: #B10D00;
-    color: aliceblue;
-    border-top: #D54200 solid 2px;
-    border-left: #D54200 solid 2px;
-    border-bottom:  #B13700 solid 2px;
-    border-right:  #B13700 solid 2px;
+.failure {
+  background-color: #b10d00;
+  color: aliceblue;
+  border-top: #d54200 solid 2px;
+  border-left: #d54200 solid 2px;
+  border-bottom: #b13700 solid 2px;
+  border-right: #b13700 solid 2px;
 }
-.failure:active{
-    border-top: #B13700 solid 2px;
-    border-left: #B13700 solid 2px;
-    border-bottom:  #D54200 solid 2px;
-    border-right:  #D54200 solid 2px;
+.failure:active {
+  border-top: #b13700 solid 2px;
+  border-left: #b13700 solid 2px;
+  border-bottom: #d54200 solid 2px;
+  border-right: #d54200 solid 2px;
 }

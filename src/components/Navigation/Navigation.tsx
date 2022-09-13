@@ -8,13 +8,14 @@ import AboutPage from '../Pages/AboutPage/AboutPage';
 import ComicPage from '../Pages/ComicPage/ComicPage';
 import ReaderPage from '../Pages/ReaderPage/ReaderPage';
 import IndexPage from '../Pages/IndexPage/IndexPage';
+import UnconfirmedComics from '../Pages/UnconfirmedComicsPage/UnconfirmedComicsPage';
+import UserComicCollectionPage from '../Pages/UserComicCollectionPage/UserComicCollectionPage';
 //---CONTEXT---
 import UserCredentialsContextProvider from '../store/LoginFormContext/LoginFormProvider';
 import { UserContext } from '../store/UserCredentials/UserContext';
 //----OTHER----
 import NavBar from '../Layout/NavBar/NavBar';
 import style from './Navigation.module.css';
-import UserComicCollectionPage from '../Pages/UserComicCollectionPage/UserComicCollectionPage';
 
 const Navigation: React.FC = () => {
   const { isLoggedIn, isArtist } = useContext(UserContext);
@@ -37,6 +38,7 @@ const Navigation: React.FC = () => {
             <Route path='/register' element={<RegisterPage />} />
             <Route path='/upload' element={<UploadPage />} />
             <Route path='/comics' element={<ComicPage />} />
+            <Route path='/unconfirmed-comics' element={<UnconfirmedComics />} />
             {isLoggedIn ? (
               <Route
                 path='/reader/:id/:author/:title'

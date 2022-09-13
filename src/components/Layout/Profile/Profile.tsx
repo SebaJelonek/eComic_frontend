@@ -12,7 +12,7 @@ const Profile: React.FC<Props> = ({ className }) => {
   const [top, setTop] = useState('-80px');
   const [zIndex, setZIndex] = useState('-10');
 
-  const { isArtist, setIsLoggedIn } = useContext(UserContext);
+  const { isArtist, isAdmin, setIsLoggedIn } = useContext(UserContext);
 
   const profile = (
     <img
@@ -39,11 +39,13 @@ const Profile: React.FC<Props> = ({ className }) => {
         className={style['profile-menu']}
         style={{ top: top, zIndex: zIndex }}
       >
-        <li className={style['profile-element']}>
-          <Link className={style['profile-element__link']} to='/about'>
-            About Me
-          </Link>
-        </li>
+        {!isAdmin && (
+          <li className={style['profile-element']}>
+            <Link className={style['profile-element__link']} to='/about'>
+              About Me
+            </Link>
+          </li>
+        )}
         {isArtist && (
           <li className={style['profile-element']}>
             <Link className={style['profile-element__link']} to='/my-comics'>

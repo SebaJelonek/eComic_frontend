@@ -6,7 +6,7 @@ import VerticalListCard from '../VarticalListCard/VerticalListCard';
 import Chevron from '../Chevron/Chevron';
 
 interface Props {
-  comics?: {
+  comics: {
     _id: string;
     title: string;
     author: string;
@@ -14,24 +14,28 @@ interface Props {
     pdfFileID: string;
     thumbnailID: string;
   }[];
+  comicCount: number | undefined;
+  isConfirmed: boolean;
 }
 
-const VerticalList: React.FC<Props> = ({ comics }) => {
+const VerticalList: React.FC<Props> = ({ comics, comicCount, isConfirmed }) => {
   const cardStyle = 'all 175ms ease-in';
   const [marginLeft, setMarginLeft] = useState(0);
 
-  const moveComicLeft = () => {
-    setMarginLeft(marginLeft - 2565.5);
+  const moveComicRight = () => {
+    if (typeof comicCount === 'number' && comicCount)
+      setMarginLeft(marginLeft - 1598.52);
   };
 
-  const moveComicRight = () => {
-    if (marginLeft === 0) setMarginLeft(0);
-    setMarginLeft(marginLeft + 2565.5);
+  const moveComicLeft = () => {
+    marginLeft === 0 ? setMarginLeft(0) : setMarginLeft(marginLeft + 1598.52);
   };
 
   return (
     <Fragment>
-      <h2 className={style['list-title']}>{comics && comics[0].genre}</h2>
+      <h2 className={style['list-title']}>
+        {comics.length > 0 ? comics[0].genre : ''}
+      </h2>
       <div className={style['container']}>
         <Chevron onClickHandler={moveComicLeft} orientation='left' />
         <div style={{ marginLeft }} className={style['card-container']}>
@@ -43,16 +47,13 @@ const VerticalList: React.FC<Props> = ({ comics }) => {
                 to={`/reader/${pdfFileID}/${author}/${title}`}
               >
                 <VerticalListCard
+                  isConfirmed={isConfirmed}
                   title={title}
                   author={author}
                   transition={cardStyle}
-                >
-                  <img
-                    className={style['comic-img']}
-                    src={`http://localhost:1337/api/file/${thumbnailID}`}
-                    alt='comic thumbnail'
-                  />
-                </VerticalListCard>
+                  comicId={_id}
+                  thumbNailId={thumbnailID}
+                />
               </Link>
             ))
           ) : (

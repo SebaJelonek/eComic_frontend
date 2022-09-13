@@ -9,7 +9,7 @@ import bookImg from './3145866.png';
 const logo = <img style={{ width: '50px' }} src={bookImg} alt='book logo' />;
 
 const Router: React.FC = () => {
-  const { isLoggedIn, isArtist } = useContext(UserContext);
+  const { isLoggedIn, isArtist, isAdmin } = useContext(UserContext);
 
   return (
     <nav className={style['nav-container']}>
@@ -28,6 +28,7 @@ const Router: React.FC = () => {
       >
         verify
       </button> */}
+
       <div className={style['nav-bar']}>
         <ul className={style['nav-list']}>
           <li>
@@ -56,11 +57,20 @@ const Router: React.FC = () => {
               </Link>
             </li>
           )}
-          <li>
-            <Link className={style['nav-link']} to='/comics'>
-              Comics
-            </Link>
-          </li>
+          {!isAdmin && (
+            <li>
+              <Link className={style['nav-link']} to='/comics'>
+                Comics
+              </Link>
+            </li>
+          )}
+          {isAdmin && (
+            <li>
+              <Link className={style['nav-link']} to='/unconfirmed-comics'>
+                Unconfirmed Comics
+              </Link>
+            </li>
+          )}
         </ul>
         {isLoggedIn && (
           <Profile

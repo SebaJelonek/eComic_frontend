@@ -17,7 +17,7 @@ const Reader: React.FC = () => {
   const title = params.title;
 
   useEffect(() => {
-    setUrl('http://localhost:1337/api/file/' + params.id);
+    setUrl('https://ecomic-backend.onrender.com/api/file/' + params.id);
   }, [params.id]);
 
   const onSuccessfullLoad = (document: any) => {
